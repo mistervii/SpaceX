@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SpaceX</string>
+    <string name="home_title">SpaceX</string>
+    <string name="company_title">COMPANY</string>
+    <string name="company_desc">Company description</string>
+    <string name="launches_title">LAUNCHES</string>
+</resources>

@@ -4,4 +4,9 @@
     <string name="company_title">COMPANY</string>
     <string name="company_desc">Company description</string>
     <string name="launches_title">LAUNCHES</string>
+    <string name="mission">Mission :</string>
+    <string name="datetime">Date/time :</string>
+    <string name="rocket">Rocket :</string>
+    <string name="timediff">Days %1s now :</string>
+    <string name="placeholder">--</string>
 </resources>

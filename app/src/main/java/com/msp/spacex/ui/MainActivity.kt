@@ -2,6 +2,7 @@ package com.msp.spacex.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel : MainViewModel
     private lateinit var companyInfoTxtView : TextView
     private lateinit var refreshLayout: SwipeRefreshLayout
+    private lateinit var errorTxt : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.launches_recyclerview)
         companyInfoTxtView = findViewById(R.id.company_description)
         refreshLayout = findViewById(R.id.refreshLayout)
+        errorTxt = findViewById(R.id.errorTxT)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         loadData()
@@ -48,24 +51,28 @@ class MainActivity : AppCompatActivity() {
                     refreshLayout.isRefreshing = false
                 }
                 is Results.Error -> {
-                    // Handle the error
+                    refreshLayout.isRefreshing = false
                 }
                 Results.Loading -> {
-                    // Handle the loading state
+
                 }
             }.exhaustive
         }
         viewModel.getAllLaunches().observe(this) { result ->
             when (result) {
                 is Results.Success -> {
+                    errorTxt.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
                     adapter.launches = result.data
                     adapter.notifyDataSetChanged()
                 }
                 is Results.Error -> {
-                    // Handle the error
+                    errorTxt.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                    refreshLayout.isRefreshing = false
                 }
                 Results.Loading -> {
-                    // Handle the loading state
+
                 }
             }.exhaustive
         }

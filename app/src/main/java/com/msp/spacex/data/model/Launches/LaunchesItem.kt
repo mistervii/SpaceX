@@ -12,7 +12,7 @@ data class LaunchesItem(
     @SerializedName("launch_date_local")
     val launchDateLocal: String,
     @SerializedName("launch_date_unix")
-    val launchDateUnix: Int,
+    val launchDateUnix: Long,
     @SerializedName("launch_date_utc")
     val launchDateUtc: String,
     @SerializedName("launch_failure_details")

@@ -4,73 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SplashScreenActivity">
+    tools:context=".ui.SplashScreenActivity"
+    android:background="@color/black">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/home_title"
-        android:textSize="22sp"
-        android:textStyle="bold"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        app:lottie_fileName="animation_spacex.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="7dp"/>
-
-    <TextView
-        android:id="@+id/company_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/company_title"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        android:paddingStart="15dp"
-        android:layout_marginTop="7dp"
-        android:paddingVertical="12dp"
-        android:textColor="@color/white"
-        android:background="@color/black"
-        />
-    <TextView
-        android:id="@+id/company_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/company_desc"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/company_title"
-        android:paddingStart="15dp"
-        android:layout_marginTop="7dp"
-        android:paddingVertical="9dp"
         />
 
-    <TextView
-        android:id="@+id/launches_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/launches_title"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/company_description"
-        android:paddingStart="15dp"
-        android:layout_marginTop="7dp"
-        android:paddingVertical="12dp"
-        android:textColor="@color/white"
-        android:background="@color/black"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/launches_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/launches_title"
-        android:layout_marginTop="7dp"
-        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
